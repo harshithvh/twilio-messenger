@@ -4,7 +4,7 @@ import { generateJWTtoken } from "../utils/generateJWT.util.js";
 import { hash, compare } from 'bcrypt';
 
 const registerUser = asyncHandler(async (req, res) => {
-    const { password, phone_number, confirmPassword } = req.body;
+    const { password, priority, phone_number, confirmPassword } = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({
@@ -20,7 +20,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     try {
       const hashedPassword = await hash(password, 10);
-      const newUser = await User.create({ phone_number, password: hashedPassword });
+      const newUser = await User.create({ phone_number, priority, password: hashedPassword });
       res.status(201).json({ message: `User registered successfully with ${newUser.phone_number}` });
     } catch (error) {
       res.status(500).json({ message: 'Failed to register user', error: error.message });

@@ -1,10 +1,16 @@
 // user.model.js
 import mongoose from 'mongoose';
 
+const enumPriority = {
+    HIGH: 0,
+    MEDIUM: 1,
+    LOW: 2
+};
+
 const userSchema = new mongoose.Schema({
     phone_number: {
         type: String, // Changed to String to allow non-numeric characters
-        required: true,
+        required: [true, 'phone_number is required'],
         unique: true,
         validate: {
             validator: function (v) {
@@ -15,7 +21,8 @@ const userSchema = new mongoose.Schema({
     },
     priority: {
         type: Number,
-        default: 2
+        required: [true, 'priority is required'],
+        enum: enumPriority,
     },
     created_at: { 
         type: Date, 
@@ -27,7 +34,7 @@ const userSchema = new mongoose.Schema({
     },
     password : {
         type: String,
-        required: true,
+        required: [true, 'Password is required']
     },
     // Relationships
     tasks :[{

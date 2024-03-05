@@ -44,7 +44,7 @@ const setupTwilioCall = async (req, res) => {
       due_date: {
           $gte: currentTime,
       }
-  }, { "userId": 1 }).sort({ due_date: 'asc' });
+  }, { "userId": 1});
 
   // remove duplicate userIds
   const userIds = Array.from(new Set(tasks.map(task => task.userId)));
@@ -71,8 +71,8 @@ const setupTwilioCall = async (req, res) => {
   for (let priority = 0; priority <= 2; priority++) {
       const tasksToCall = tasksByPriority[priority];
       if (tasksToCall && tasksToCall.length > 0) {
-          const phoneNumbers = tasksToCall.map(task => task.user?.phone_number);
-          const callSids = await MakePhoneCalls(phoneNumbers);
+          const phoneNumbers = tasksToCall.map(taskObj => taskObj.user?.phone_number);
+          const callSids = await MakePhoneCalls(phoneNumbers );
           allCallSids.push(...callSids);
       }
   }
