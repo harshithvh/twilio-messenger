@@ -10,7 +10,6 @@ import taskRouter from './routes/task.routes.js';
 import subTaskRouter from './routes/subtask.routes.js';
 import webhookRouter from './routes/webhook.routes.js';
 import './cron/priority.cron.js';
-// import { handleCallStatus } from './cron/makeCall.cron.js';
 
 const app = express();
 
@@ -24,13 +23,6 @@ app.use(errorHandler);
 app.get('/', (req, res) => {
   res.send('Twilio Message Service is running...');
 });
-
-// app.post('/webhook', (req, res) => {
-//   const { CallStatus, CallSid } = req.body;
-//   // console.log(req.body);
-//   handleCallStatus(CallStatus,CallSid);
-//   res.sendStatus(200);
-// });
 
 app.use('/api/auth',userRouter);
 app.use('/api/task',taskRouter);

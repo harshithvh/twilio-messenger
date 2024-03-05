@@ -82,7 +82,7 @@ const deleteSubTask = asyncHandler(async (req, res) => {
 
     try {
       const filter = {
-        ...(task_id && { _id: task_id }),
+        ...(task_id && { task_id: task_id }),
         ...(include_deleted !== 'YES' && { deleted_at: { $eq: null } }),
       };
       const subtasks = await SubTask.find(filter);
