@@ -18,6 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(errorHandler);
+app.use(notFound);
 
 //routes
 app.get('/', (req, res) => {
@@ -28,7 +29,6 @@ app.use('/api/auth',userRouter);
 app.use('/api/task',taskRouter);
 app.use('/api/subtask',subTaskRouter);
 app.use('/api/webhook',webhookRouter);
-app.use(notFound);
 
 const port = process.env.PORT || 5000;
 

@@ -42,7 +42,7 @@ const setupTwilioCall = async (req, res) => {
       status: { $ne: 'DONE' },
       deleted_at: null,
       due_date: {
-          $gte: currentTime,
+          $lte: currentTime,
       }
   }, { "userId": 1});
 

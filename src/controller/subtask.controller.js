@@ -16,7 +16,7 @@ const createSubTask = asyncHandler(async (req, res) => {
     }
 
     const subtask = await SubTask.create({
-      status: "PENDING", // 0 - TODO, 1 - DONE
+      status: "PENDING",
       task_id: task._id,
     });
 
