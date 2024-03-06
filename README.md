@@ -28,6 +28,45 @@ Create a Task Management API with robust features including:
 * [Cron Job](https://cron-job.org/en/)
 * [Twilio](https://www.twilio.com/docs/voice)
 
+## Running the Backend
+
+- Clone the repo:
+  
+  ```bash
+  git clone https://github.com/harshithvh/twilio-messenger.git
+  
+- Open directory in terminal:
+
+  ```bash
+  cd twilio-messenger
+
+- Create a .env file:
+
+  ```bash
+  MONGO_URI=mongodb://localhost:27017/{app}
+  JWT_SECRET=JWT_SECRET_KEY
+  WEBHOOK_API_KEY=WEBHOOK_API_KEY
+  HOST_URL=NGROK_URL
+  TWILIO_ACCOUNT_SID=YOUR_ACCOUNT_SID
+  TWILIO_AUTH_TOKEN=YOUR_AUTH_TOKEN
+  TWILIO_PHONE_NUMBER=YOUR_PHONE_NUMBER
+  NODE_ENV=development
+
+- Install project dependencies:
+
+  ```bash
+  npm install
+
+- Fire up the server:
+
+  ```bash
+   nodemon server.js
+
+- Access api at:
+
+  ```bash
+  http://localhost:5000/
+
 ## Application Structure
 
 <details>
