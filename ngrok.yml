@@ -1,4 +1,4 @@
-authtoken: 2SzIRNXDy7bSDhKDKzbh8Y1Edqp_9dDrZyH13YRFQVgPSBTu
+authtoken: NGROK_AUTH_TOKEN
 version: 2
 tunnels:
   web:
